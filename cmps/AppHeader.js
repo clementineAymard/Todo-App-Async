@@ -1,4 +1,4 @@
-import LoginSignup from './LoginSignup.js'
+import LoginSignup from '../pages/LoginSignup.js'
 
 export default {
     template: `
@@ -15,7 +15,7 @@ export default {
         <nav :class="isMenuShownClass">
         
             <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
-            <RouterLink to="/todo" @click="toggleMenu">Todos</RouterLink>
+            <RouterLink to="/todo" v-if="user" @click="toggleMenu">Todos</RouterLink>
             <RouterLink to="/user" v-if="user" @click="toggleMenu">Account</RouterLink>
             
             <a v-if="user" @click="logout">Logout</a>

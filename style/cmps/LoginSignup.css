@@ -1,0 +1,29 @@
+.login-signup {
+    min-width: fit-content;
+    width: 300px;
+    margin: auto;
+}
+
+.login-signup h3,
+.login-signup h2 {
+    padding: 10px;
+    text-align: center;
+}
+
+.login-signup .login,
+.login-signup .signup {
+    gap: 10px
+}
+
+.login-signup .login button,
+.login-signup .signup button {
+    height: 25px
+}
+
+.no-user {
+    display: block;
+    width: fit-content;
+    padding: 10px;
+    margin: auto;
+    margin-block-start: 2rem;
+}

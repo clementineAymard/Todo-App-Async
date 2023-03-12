@@ -1,10 +1,10 @@
 // import { productService } from '../services/product.service.js'
-import LoginSignup from '../cmps/LoginSignup.js'
+import LoginSignup from './LoginSignup.js'
 
 export default {
     template: `
         <section class="home">
-            <h1>Welcome <span>{{fullname}}</span> !</h1>
+            <h1>Welcome <span v-if="user">{{fullname}} !</span></h1>
             <LoginSignup v-if="!user"/>
         </section>
     `,

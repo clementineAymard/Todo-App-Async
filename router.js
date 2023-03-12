@@ -1,6 +1,7 @@
 const { createRouter, createWebHashHistory } = VueRouter
 
 import HomePage from './pages/HomePage.js'
+import LoginSignup from './pages/LoginSignup.js'
 import TodoIndex from './pages/TodoIndex.js'
 import TodoEdit from './pages/TodoEdit.js'
 import TodoDetails from './pages/TodoDetails.js'
@@ -14,7 +15,7 @@ const routes = [
     },
     {
         path: '/login',
-        component: HomePage,
+        component: LoginSignup,
     },
     {
         path: '/todo',

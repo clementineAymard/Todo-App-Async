@@ -43,7 +43,8 @@ a:hover {
     background-color: rgb(234, 233, 233);
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
     border: solid 1px lightgrey;
     border-radius: 5px;
     padding: 5px

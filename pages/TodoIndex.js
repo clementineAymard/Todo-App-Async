@@ -24,9 +24,6 @@ export default {
                      
         </section>
 
-        <section v-else>
-            <RouterLink to="/" class="no-user">Login/Sign-up</RouterLink>
-        </section>
     `,
     data() {
         return {

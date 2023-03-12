@@ -30,10 +30,10 @@ const options = {
                 console.log(this.user)
                 
                 return {
-                    color: this.user.settings.txtColor,
-                    background: this.user.settings.bgColor
-                    // background: this.user.settings.bgColor  || 'var(--clr-bg)',
-                    // color: this.user.settings.txtColor || 'var(--clr-txt-light)',
+                    // color: this.user.settings.txtColor,
+                    // background: this.user.settings.bgColor
+                    background: this.user.settings.bgColor  || 'var(--clr-bg)',
+                    color: this.user.settings.txtColor || 'var(--clr-txt-light)',
                 }
             } else{} 
         }

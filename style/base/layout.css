@@ -1,0 +1,36 @@
+.main {
+    display: grid;
+    grid-template-rows: 4rem 1fr 4rem;
+}
+
+.app-header {
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    color : var(--clr-txt-light)
+}
+
+.app-header nav {
+    display: flex;
+}
+.app-header a {
+    border-radius: 0px;
+}
+.app-header a:hover {
+    background-color: var(--clr-bg-med);
+}
+
+.todo-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-sort-todos {
+    justify-content: center;
+}
+
+.add-todo form{
+    display: flex;
+    align-items: center;
+}

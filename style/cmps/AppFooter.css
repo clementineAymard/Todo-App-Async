@@ -1,0 +1,12 @@
+.app-footer {
+    background-color: var(--clr-bg);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+}
+
+.app-footer >*{
+    color: inherit;
+}

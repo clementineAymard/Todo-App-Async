@@ -1,0 +1,10 @@
+.user-settings  h1{
+    margin:auto;
+    margin-block: 2rem;
+    width: fit-content;
+    font-weight: bold;
+}
+.user-settings div {
+    width: 300px;
+    margin:auto;
+}

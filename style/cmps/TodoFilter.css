@@ -1,0 +1,15 @@
+.filter-sort-todos {
+    border-block-end: solid 1px lightgray;
+}
+
+.filter-sort-todos>* {
+    padding-inline: 10px;
+    margin-block: 10px;
+    color:var(--clr-bg-dark);
+    font-size:14px;
+    font-weight: bold;
+}
+
+.sort-todos {
+    gap:5px
+}

@@ -1,0 +1,18 @@
+a {
+    margin:10px
+}
+
+.details {
+    width: 300px;
+    margin:auto;
+    gap: 10px;   
+}
+
+.details span{
+    color: var(--clr-bg-med);
+    font-size: 12px;
+    margin-inline-end: 10px;
+}
+.details div {
+    /* font-weight: bold; */
+}

@@ -1,0 +1,30 @@
+.todo-list ul {
+    width: 300px;
+    min-width: fit-content;
+}
+
+.todo-list ul li {
+    padding: 10px;
+    border-block-end: solid 1px lightgrey;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-list ul li article {
+    display: inline;
+    cursor: pointer;
+}
+
+.todo-list ul li article.done {
+    text-decoration: line-through;
+}
+
+.todo-list ul li article.active {
+    text-decoration: none;
+}
+
+.todo-list ul li div,
+.todo-list ul li div span {
+    color:var(--clr-bg)
+}

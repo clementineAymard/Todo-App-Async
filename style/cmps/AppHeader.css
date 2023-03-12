@@ -1,0 +1,56 @@
+.app-header {
+    background-color: var(--clr-bg);
+}
+
+.app-header * {
+    color: var(--clr-txt-light);
+}
+
+.app-header .logo {
+    font-size: 2rem;
+    margin-inline-start: 2rem;
+    color: inherit;
+}
+
+.app-header .logo:hover {
+    background-color: transparent;
+}
+
+.app-header nav {
+    margin-inline-end: 2rem;
+    color: inherit;
+}
+
+.app-header nav a {
+    padding: 10px;
+    color: inherit;
+}
+
+.app-header nav a.router-link-active {
+    box-shadow: 0px -5px inset var(--clr-txt-light);
+}
+
+.app-header .progress-bar {
+    width: 320px;
+    margin-inline-start: 20px;
+    margin-block-end: 10px;
+    color: inherit;
+}
+
+.app-header .progress-bar * {
+    border-radius: 10px;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: lightgrey;
+}
+
+#myBar {
+    width: 1%;
+    height: 20px;
+    background-color: var(--clr-bg-dark);
+    transition: width ease-in-out 0.5s;
+    text-align: end;
+    padding-inline-end: 5px;
+}

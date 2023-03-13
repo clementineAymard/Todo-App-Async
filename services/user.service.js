@@ -57,7 +57,7 @@ function signup({ fullname, username, password }) {
 
 function addActivity(activity) {
     var user = getLoggedinUser()
-    user.activities.push({ txt: activity, at: Date.now() })
+    user.activities.push(activity)
     return storageService.put(USER_KEY, user)
         .then(savedUser => {
             _saveUserToStorage(savedUser)

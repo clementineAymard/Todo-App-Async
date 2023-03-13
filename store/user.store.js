@@ -15,8 +15,11 @@ export const userStore = {
         signup(state, { signupInfo }) {
 
         },
-        updateUser(state) {
-            state.user = userService.getLoggedinUser()
+        addActivity(state, { activity }) {
+            if (state.user) state.user.activities.push(activity)
+        },
+        updateUser(state, { settings }) {
+            if (state.user) state.user.settings = settings
         }
     },
     actions: {
@@ -27,9 +30,10 @@ export const userStore = {
                     console.log('Login failed', err)
                 })
         },
-        addActivity({ commit }, { activity }) {// updates service then state with commit
+        addActivity({ commit }, { activity }) { // updates service then state with commit
+            activity = { txt: activity, at: Date.now() }
             return userService.addActivity(activity)
-                // .then(user => commit({ type: 'updateUser', user: user }))
+                .then(() => commit({ type: 'addActivity', activity: activity }))
                 .catch(err => {
                     console.log('Failed to add activity')
                     throw err
@@ -37,8 +41,8 @@ export const userStore = {
         },
         updateUser({ commit }, { settings }) {
             return userService.updateUser(settings)
-            .then(savedUser => {
-                    commit('updateUser')
+                .then(savedUser => {
+                    commit({ type: 'updateUser', settings: settings })
                 })
                 .catch(err => {
                     console.log('Failed to update user settings')

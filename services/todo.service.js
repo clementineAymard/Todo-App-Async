@@ -72,7 +72,7 @@ function getProgress() {
             todos = todos.filter(todo => todo.ownerUsername === username)
             var countDone = todos.filter(todo => todo.status === 'done').length
             var countTotal = todos.length
-            return (100 * countDone / countTotal)
+            return Math.round(100 * countDone / countTotal)
         })
 }
 

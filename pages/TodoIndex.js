@@ -23,7 +23,6 @@ export default {
                 @toggleTodoStatus="onToggleTodoStatus"/>   
                      
         </section>
-
     `,
     data() {
         return {
@@ -58,7 +57,7 @@ export default {
                 .catch(err => showErrorMsg('Failed to remove todo'))
         },
         onToggleTodoStatus(todoId) {
-            this.$store.commit({ type: 'toggleStatus', todoId })
+            this.$store.dispatch({ type: 'toggleStatus', todoId })
         },
     },
     components: {

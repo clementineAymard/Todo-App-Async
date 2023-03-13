@@ -22,7 +22,7 @@ export default {
     created() {
         this.$store.dispatch({ type: 'setCurrTodo', todoId: this.$route.params.todoId })
             .then(() => this.newTodo = { ...this.$store.getters.currTodo })
-            // .catch(err => { throw err })
+        // .catch(err => { throw err })
     },
     methods: {
         editTodo() {
@@ -31,9 +31,7 @@ export default {
                     showSuccessMsg('Edited todo')
                     this.$router.push('/todo')
                 })
-                .catch(err => {
-                    showErrorMsg('Failed to edit todo')
-                })
+                .catch(err => showErrorMsg('Failed to edit todo', err))
 
         }
     },

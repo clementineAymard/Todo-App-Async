@@ -21,6 +21,21 @@ export const todoStore = {
         setSortBy(state, { sortBy }) {
             state.sortBy = sortBy
         },
+        addTodo(state, { newTodo }) {
+            state.todos.unshift(newTodo)
+        },
+        removeTodo(state, { todoId }) {
+            const idx = state.todos.findIndex(td => td._id === todoId)
+            state.todos.splice(idx, 1)
+        },
+        editTodo(state, { newTodo }) {
+            const idx = state.todos.findIndex(td => td._id === newTodo._id)
+            state.todos.splice(idx, 1, newTodo)
+        },
+        toggleStatus(state, { todoId }) {
+            const idx = state.todos.findIndex(td => td._id === todoId)
+            state.todos[idx].status = state.todos[idx].status === 'active' ? 'done' : 'active'
+        },
         setCurrTodo(state, { todo }) {
             state.currTodo = { ...todo }
         },
@@ -71,46 +86,42 @@ export const todoStore = {
             return todoService.save(todo)
                 .then(savedTodo => {
                     // console.log(savedTodo)
-                    dispatch('loadTodos')
-                        .then(() => {
-                            dispatch({ type: 'addActivity', activity: 'Added a todo' })
-                        })
+                    commit({ type: 'addTodo', newTodo: savedTodo })
+                    dispatch({ type: 'addActivity', activity: 'Added a todo' })
                 })
                 .catch(err => {
                     console.log('Failed to add todo')
                     throw err
                 })
         },
-        removeTodo({ dispatch }, { todoId }) {
+        removeTodo({ commit, dispatch }, { todoId }) {
             return todoService.remove(todoId)
                 .then(() => {
-                    dispatch('loadTodos')
-                        .then(() => {
-                            dispatch({ type: 'addActivity', activity: 'Removed a todo' })
-                            console.log('loaded todos')
-                        })
-                        .catch(err => { throw err })
+                    commit({ type: 'removeTodo', todoId: todoId })
                     console.log('removed todo')
+                    dispatch({ type: 'addActivity', activity: 'Removed a todo' })
                 })
                 .catch((err) => { throw err })
         },
-        editTodo(context, { newTodo }) {
+        editTodo({ commit, dispatch }, { newTodo }) {
             newTodo.updatedAt = Date.now()
             console.log(newTodo)
             return todoService.save(newTodo)
                 .then(() => {
+                    commit({ type: 'editTodo', newTodo: newTodo })
                     console.log('Succesfully saved todo')
-                    dispatch({ type: 'addActivity', activity: 'Added a todo' })
+                    dispatch({ type: 'addActivity', activity: 'Edited a todo' })
                 })
                 .catch(err => {
                     console.log('Failed to save todo')
                     throw err
                 })
         },
-        toggleStatus({ dispatch }, { todoId }) {
+        toggleStatus({ dispatch, commit }, { todoId }) {
             return todoService.toggleStatus(todoId)
                 .then(() => {
-                    dispatch('loadTodos')
+                    commit({ type: 'toggleStatus', todoId: todoId })
+                    dispatch({ type: 'addActivity', activity: 'Updated todo status' })
                     dispatch('getProgress')
                 })
                 .catch(err => {
